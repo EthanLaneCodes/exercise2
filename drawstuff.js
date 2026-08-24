@@ -138,7 +138,7 @@ function drawPixel(imagedata,x,y,color) {
             imagedata.data[pixelindex+2] = color.b;
             imagedata.data[pixelindex+3] = color.a;
 
-            if (x > y + 50) {
+            if (x > y * (2 / 2.5) + 100) {
             imagedata.data[pixelindex] = back.r;
             imagedata.data[pixelindex+1] = back.g;
             imagedata.data[pixelindex+2] = back.b;
