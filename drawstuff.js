@@ -125,6 +125,7 @@ class Color {
 
 // draw a pixel at x,y using color
 function drawPixel(imagedata,x,y,color) {
+    var back = new Color(0,0,0,0);
     try {
         if ((typeof(x) !== "number") || (typeof(y) !== "number"))
             throw "drawpixel location not a number";
@@ -136,6 +137,14 @@ function drawPixel(imagedata,x,y,color) {
             imagedata.data[pixelindex+1] = color.g;
             imagedata.data[pixelindex+2] = color.b;
             imagedata.data[pixelindex+3] = color.a;
+
+            if (x > y + 50) {
+            imagedata.data[pixelindex] = back.r;
+            imagedata.data[pixelindex+1] = back.g;
+            imagedata.data[pixelindex+2] = back.b;
+            imagedata.data[pixelindex+3] = back.a;
+            }
+            
         } else 
             throw "drawpixel color is not a Color";
     } // end try
@@ -158,14 +167,14 @@ function main() {
     var imagedata = context.createImageData(w,h);
  
     // Define a rectangle in 2D with colors and coords at corners
-    var ulc = new Color(0,255,255,255); // upper left corner color: red
-    var urc = new Color(255,100,250,255); // upper right corner color: green
-    var llc = new Color(255,250,10,255); // lower left corner color: blue
-    var lrc = new Color(255,120,120,255); // lower right corner color: black
-    var ulx = 50, uly = 50; // upper left corner position
-    var urx = 200, ury = 50; // upper right corner position
-    var llx = 50, lly = 150; // lower left corner position
-    var lrx = 200, lry = 150; // lower right corner position
+    var ulc = new Color(0,255,255,255); // upper left corner color: cyan
+    var urc = new Color(255,100,250,255); // upper right corner color: magenta
+    var llc = new Color(255,250,10,255); // lower left corner color: yellow
+    var lrc = new Color(255,120,120,255); // lower right corner color: pink
+    var ulx = 0, uly = 0; // upper left corner position
+    var urx = 200, ury = 0; // upper right corner position
+    var llx = 0, lly = 250; // lower left corner position
+    var lrx = 200, lry = 250; // lower right corner position
     
     // set up the vertical interpolation
     var lc = ulc.clone();  // left color
