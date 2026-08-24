@@ -138,14 +138,14 @@ function drawPixel(imagedata,x,y,color) {
             imagedata.data[pixelindex+2] = color.b;
             imagedata.data[pixelindex+3] = color.a;
 
-            if (x > y * (1 / 2.5) + 100) {
+            if (x > y * (1 / 2) + 100) {
             imagedata.data[pixelindex] = back.r;
             imagedata.data[pixelindex+1] = back.g;
             imagedata.data[pixelindex+2] = back.b;
             imagedata.data[pixelindex+3] = back.a;
             }
 
-            if (x < -y * (1 / 2.5) + 100) {
+            if (x < -y * (1 / 2) + 100) {
             imagedata.data[pixelindex] = back.r;
             imagedata.data[pixelindex+1] = back.g;
             imagedata.data[pixelindex+2] = back.b;
@@ -180,8 +180,8 @@ function main() {
     var lrc = new Color(255,120,120,255); // lower right corner color: pink
     var ulx = 0, uly = 0; // upper left corner position
     var urx = 200, ury = 0; // upper right corner position
-    var llx = 0, lly = 250; // lower left corner position
-    var lrx = 200, lry = 250; // lower right corner position
+    var llx = 0, lly = 200; // lower left corner position
+    var lrx = 200, lry = 200; // lower right corner position
     
     // set up the vertical interpolation
     var lc = ulc.clone();  // left color
